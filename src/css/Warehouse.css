@@ -1,0 +1,130 @@
+.warehouse {
+  display: flex;
+  justify-content: center;
+  padding-top: 10vmin;
+}
+
+.warehouse aside {
+  position: sticky;
+  top: 8vmin;
+  width: 20%;
+  height: 100%;
+  /* border: 1px solid white; */
+  text-transform: capitalize;
+}
+
+.warehouse aside .codename {
+  font-size: 6vmin;
+}
+
+.wh-address {
+  display: flex;
+  flex-direction: column;
+  padding-left: 1vmin;
+}
+
+.city {
+  font-size: 3vmin;
+  color: var(--accent-main);
+}
+
+.street,
+.postcode {
+  font-size: 2vmin;
+  color: var(--accent-main-washed);
+}
+
+.overall-status {
+  height: 15vmin;
+  margin-top: 5vmin;
+  width: 80%;
+  display: flex;
+  gap: 2vmin;
+  font-size: 3vmin;
+  text-align: center;
+}
+
+.overall-status-bar {
+  position: relative;
+  width: 6vmin;
+  background-color: var(--dark-200);
+  border-radius: 1.5vmin;
+  overflow: hidden;
+}
+
+.overall-status-bar-filler {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+}
+
+.overall-status-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  text-transform: initial;
+}
+
+/* WAREHOUSE STOCK */
+
+.warehouse section {
+  display: flex;
+  flex-direction: column;
+  gap: 3vmin;
+  width: 40%;
+  padding: 3vmin;
+  margin-bottom: 3vmin;
+  background-color: var(--dark-1000);
+  border-radius: 3vmin;
+}
+
+.warehouse-title {
+  font-size: 4vmin;
+}
+
+.stock-card {
+  display: flex;
+  gap: 3vmin;
+  width: 100%;
+  height: 15vmin;
+  background-color: var(--dark-500);
+  border-radius: 2vmin;
+}
+
+.stock-card img {
+  width: 25%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 2vmin 0 0 2vmin;
+}
+
+.stock-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  font-weight: 400;
+  font-size: 1.75vmin;
+}
+
+.stock-name {
+  font-size: 2.5vmin;
+  font-weight: 700;
+  text-transform: capitalize;
+}
+
+.stock-status-bar {
+  position: relative;
+  width: 4vmin;
+  height: 100%;
+  margin-left: auto;
+  border-radius: 0 2vmin 2vmin 0;
+  background-color: var(--dark-200);
+  overflow: hidden;
+}
+
+.stock-status-bar-filler {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}

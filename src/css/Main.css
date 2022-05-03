@@ -1,0 +1,98 @@
+.main {
+  height: inherit;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5vmin;
+}
+
+.main button {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 5vmin;
+  padding: 0.5vmin 5vmin;
+  font-size: 4vmin;
+  font-weight: 700;
+  text-transform: uppercase;
+  border: none;
+  border-radius: 1vmin;
+  background-color: var(--dark-500);
+  cursor: pointer;
+  transition: all 200ms;
+}
+
+.main button:hover {
+  gap: 8vmin;
+  background-color: var(--dark-200);
+  transform: scale(1.1);
+}
+
+.main button:hover i {
+  animation-name: slide;
+  animation-duration: 1s;
+  animation-timing-function: ease-in-out;
+  animation-delay: 0;
+  animation-iteration-count: infinite;
+}
+
+@keyframes slide {
+  0% {
+    opacity: 0;
+    transform: translateX(-5vmin);
+  }
+  50% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(5vmin);
+  }
+}
+
+.wh-cards {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5vmin;
+}
+
+.wh-card {
+  display: flex;
+  flex-direction: column;
+  height: 60vmin;
+  aspect-ratio: 9/16;
+  background-color: var(--dark-500);
+  border-radius: 3vmin;
+  box-shadow: 2px 2px 20px rgb(29, 31, 56);
+  cursor: pointer;
+  transition: all 0.15s;
+}
+
+.wh-card:hover {
+  transform: scale(1.05);
+  box-shadow: 5px 5px 20px rgb(15, 16, 26);
+}
+
+.wh-card img {
+  width: 100%;
+  object-fit: cover;
+  height: 50vmin;
+  border-radius: 3vmin 3vmin 0 0;
+  margin-bottom: auto;
+}
+
+.wh-card span {
+  font-size: 4vmin;
+  padding: 0 2vmin;
+  margin: 0.5vmin 0;
+  text-transform: capitalize;
+}
+
+.wh-card span:last-of-type {
+  font-size: 2vmin;
+  margin: 1vmin 0 2vmin;
+}
