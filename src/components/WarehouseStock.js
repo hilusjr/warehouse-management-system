@@ -2,8 +2,8 @@ function WarehouseStock({ type, maximum, current, minimum }) {
   if (!current && current !== 0) current = maximum
   const level = Math.ceil((current / maximum) * 100)
   const stockColor =
-    (level > 30 && 'var(--accent-green)') ||
-    (level > 15 && 'var(--accent-orange)') ||
+    (current > maximum / 2 && 'var(--accent-green)') ||
+    (current > minimum && 'var(--accent-orange)') ||
     'var(--accent-red)'
   const barStyle = {
     height: `${level}%`,
