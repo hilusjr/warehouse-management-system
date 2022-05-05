@@ -1,0 +1,199 @@
+.order-variants {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  overflow-x: hidden;
+}
+
+.slider-btn {
+  all: unset;
+  font-size: 6vmin;
+  cursor: pointer;
+  z-index: 100;
+  height: 92vmin;
+  width: 10%;
+  text-align: center;
+  border: none;
+  background: linear-gradient(
+    90deg,
+    rgba(26, 43, 78, 1) 80%,
+    rgba(0, 212, 255, 0) 100%
+  );
+}
+
+.next-card {
+  background: linear-gradient(
+    270deg,
+    rgba(26, 43, 78, 1) 80%,
+    rgba(0, 212, 255, 0) 100%
+  );
+}
+
+.variant-card {
+  position: absolute;
+  left: 30%;
+  display: flex;
+  flex-direction: column;
+  gap: 5vmin;
+  width: 40%;
+  overflow: hidden;
+  padding-top: 3vmin;
+  box-sizing: border-box;
+  border-radius: 4vmin;
+  background-color: var(--dark-1000);
+  transition: all 0.5s ease-in-out;
+}
+
+.variant-card-desc {
+  display: flex;
+  padding: 0 5vmin;
+  gap: 2vmin;
+  font-size: 3vmin;
+}
+.variant-card div i {
+  font-size: 3vmin;
+}
+
+.variant-title {
+  padding: 0 5vmin;
+  font-size: 5vmin;
+  text-align: center;
+}
+
+.variant-desc {
+  text-align: justify;
+  font-size: 3vmin;
+  color: var(--accent-main);
+}
+
+.variant-action {
+  all: unset;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 4vmin;
+  text-transform: uppercase;
+  gap: 2vmin;
+  padding: 2vmin;
+  background-color: var(--dark-200);
+  cursor: pointer;
+}
+
+.semi-options-card {
+  display: flex;
+  gap: 3vmin;
+  padding: 3vmin;
+  flex-direction: column;
+}
+
+.semi-options-card span {
+  font-size: 4vmin;
+  margin-bottom: 3vmin;
+}
+
+.semi-option {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 1vmin;
+}
+
+.semi-option span {
+  font-size: 2vmin;
+  font-weight: 500;
+  margin-bottom: 0;
+}
+
+.semi-option button {
+  all: unset;
+  font-size: 3vmin;
+  background-color: var(--dark-200);
+  padding: 1vmin 3vmin;
+  border-radius: 1vmin;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+/* ---------------------------- ORDER --------------------------*/
+
+.order {
+  display: flex;
+  justify-content: center;
+  padding-top: 10vmin;
+}
+
+.order aside {
+  position: sticky;
+  top: 8vmin;
+  width: 20%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.order aside span:nth-child(1) {
+  font-size: 6vmin;
+}
+.order aside span:nth-child(2) {
+  font-size: 3vmin;
+  text-transform: capitalize;
+  color: var(--accent-main);
+}
+
+.semi-type {
+  font-size: 2vmin;
+  text-transform: capitalize;
+  color: var(--accent-main);
+}
+.order aside span:last-of-type {
+  font-size: 2vmin;
+  text-align: justify;
+  width: 80%;
+  color: var(--accent-main-washed);
+}
+
+.order section {
+  display: flex;
+  flex-direction: column;
+  gap: 3vmin;
+  width: 40%;
+  height: min-content;
+  padding: 3vmin;
+  margin-bottom: 3vmin;
+  background-color: var(--dark-1000);
+  border-radius: 3vmin;
+}
+
+.order-warehouse {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--dark-500);
+  padding: 2vmin;
+  border-radius: 2vmin;
+  transition: max-height 0.25s ease-in-out, gap 0.1s ease-in-out;
+}
+
+.order-label {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 4vmin;
+  text-transform: capitalize;
+  cursor: pointer;
+}
+
+.order-content {
+  display: flex;
+  flex-direction: column;
+  gap: 1vmin;
+  overflow: hidden;
+  max-height: 0;
+  transition: all 0.25s ease-in-out;
+}
+
+.order-stock-card {
+  background-color: var(--dark-200);
+  padding: 2vmin;
+  border-radius: 1vmin;
+}

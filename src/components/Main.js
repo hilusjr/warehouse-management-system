@@ -4,7 +4,7 @@ function Main({ warehouses, setPage, setWarehouse }) {
   // console.log(warehouses[0])
   return (
     <section className="main page">
-      <button onClick={() => setPage('order-opt')}>
+      <button onClick={() => setPage('order-variants')}>
         <span>order supplies</span>
         <i className="fa-solid fa-angle-right"></i>
       </button>

@@ -54,6 +54,7 @@ header span:nth-child(2) {
 
 .back-btn {
   all: unset;
+  z-index: 9999;
   position: fixed;
   bottom: 1vmin;
   left: 2vmin;

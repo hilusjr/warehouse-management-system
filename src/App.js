@@ -1,11 +1,15 @@
 import { useEffect, useState } from 'react'
 import './App.css'
 import Main from './components/Main'
+import OrderVariants from './components/OrderVariants'
+import Order from './components/Order'
 import Warehouse from './components/Warehouse'
 import data from './json/warehouses.json'
 
 function App() {
   const [page, setPage] = useState('main')
+  const [orderType, setOrderType] = useState('')
+  const [semiType, setSemiType] = useState('')
   const [warehouse, setWarehouse] = useState(0)
 
   useEffect(() => {
@@ -45,6 +49,21 @@ function App() {
       )}
       {page === 'warehouse' && (
         <Warehouse warehouse={data.warehouses[warehouse]} setPage={setPage} />
+      )}
+      {page === 'order-variants' && (
+        <OrderVariants
+          setPage={setPage}
+          setOrderType={setOrderType}
+          setSemiType={setSemiType}
+        />
+      )}
+      {page === 'order' && (
+        <Order
+          setPage={setPage}
+          orderType={orderType}
+          semiType={semiType}
+          data={data}
+        />
       )}
     </div>
   )

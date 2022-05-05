@@ -1,0 +1,44 @@
+import { useEffect, useState } from 'react'
+import OrderStockInfo from '../components/OrderStockInfo'
+
+function OrderWarehouse({ warehouse }) {
+  const [isCollapsed, setCollapsed] = useState(false)
+  const [count, setCount] = useState(0)
+
+  const handleCollapse = () => {
+    setCollapsed(!isCollapsed)
+  }
+  const contentStyle = {
+    maxHeight: isCollapsed ? 0 : '1800px',
+  }
+  const orderGap = {
+    gap: isCollapsed ? 0 : '5vmin',
+  }
+
+  useEffect(() => {
+    setInterval(() => {
+      setCount(count => count + 1)
+    }, [1000])
+  })
+
+  return (
+    <div className="order-warehouse" style={orderGap}>
+      <div className="order-label" onClick={handleCollapse}>
+        <div>{warehouse.codename}</div>
+        <i className={`fa-solid fa-angle-${isCollapsed ? 'down' : 'up'}`}></i>
+      </div>
+      <div className="order-content" style={contentStyle}>
+        {warehouse.stock.map(stock => (
+          <OrderStockInfo
+            key={stock.type}
+            type={stock.type}
+            maximum={stock.max}
+            current={stock.current}
+          />
+        ))}
+      </div>
+    </div>
+  )
+}
+
+export default OrderWarehouse
