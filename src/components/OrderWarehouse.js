@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import OrderStockInfo from '../components/OrderStockInfo'
 
-function OrderWarehouse({ warehouse }) {
+function OrderWarehouse({ warehouse, orderType }) {
   const [isCollapsed, setCollapsed] = useState(false)
   const [count, setCount] = useState(0)
 
@@ -34,6 +34,7 @@ function OrderWarehouse({ warehouse }) {
             type={stock.type}
             maximum={stock.max}
             current={stock.current}
+            orderType={orderType}
           />
         ))}
       </div>

@@ -7,8 +7,9 @@ import Warehouse from './components/Warehouse'
 import data from './json/warehouses.json'
 
 function App() {
-  const [page, setPage] = useState('main')
-  const [orderType, setOrderType] = useState('')
+  const [page, setPage] = useState('order-variants')
+  const [prevPage, setPrevPage] = useState('')
+  const [orderType, setOrderType] = useState('Manual')
   const [semiType, setSemiType] = useState('')
   const [warehouse, setWarehouse] = useState(0)
 
@@ -27,6 +28,11 @@ function App() {
     }, 1000)
   }, [])
 
+  const headerStyle = {
+    width: page !== 'main' ? '90%' : '100%',
+    left: page !== 'main' ? '10%' : 0,
+  }
+
   return (
     <div
       className="App"
@@ -36,8 +42,8 @@ function App() {
           : { backgroundColor: 'var(--dark-500)' }
       }
     >
-      <header>
-        <span>wms</span>
+      <header style={headerStyle}>
+        <span onClick={() => setPage('main')}>wms</span>
         <span>warehouse management system</span>
       </header>
       {page === 'main' && (
@@ -55,6 +61,7 @@ function App() {
           setPage={setPage}
           setOrderType={setOrderType}
           setSemiType={setSemiType}
+          setPrevPage={setPrevPage}
         />
       )}
       {page === 'order' && (
@@ -63,6 +70,7 @@ function App() {
           orderType={orderType}
           semiType={semiType}
           data={data}
+          page={page}
         />
       )}
     </div>

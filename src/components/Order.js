@@ -2,7 +2,7 @@ import React from 'react'
 import BackBtn from './BackBtn'
 import OrderWarehouse from './OrderWarehouse'
 
-function Order({ setPage, orderType, semiType, data }) {
+function Order({ setPage, orderType, semiType, data, page }) {
   const description = () => {
     if (orderType === 'Manual')
       return 'You decide what to order, what not. System provides all the information for you to make it easier to control your warehouse.'
@@ -25,16 +25,18 @@ function Order({ setPage, orderType, semiType, data }) {
       <aside>
         <span>Order</span>
         <span>{orderType}</span>
-        {orderType === 'semi-automatic' && <span className='semi-type'>{semiType} resupply</span>}
+        {orderType === 'semi-automatic' && (
+          <span className="semi-type">{semiType} resupply</span>
+        )}
         <span className="order-description">{description()}</span>
         <div className="order-warnings"></div>
       </aside>
       <section>
-        <OrderWarehouse warehouse={data.warehouses[0]} />
-        <OrderWarehouse warehouse={data.warehouses[1]} />
-        <OrderWarehouse warehouse={data.warehouses[2]} />
+        <OrderWarehouse warehouse={data.warehouses[0]} orderType={orderType} />
+        <OrderWarehouse warehouse={data.warehouses[1]} orderType={orderType} />
+        <OrderWarehouse warehouse={data.warehouses[2]} orderType={orderType} />
       </section>
-      <BackBtn setPage={setPage} />
+      <BackBtn setPage={setPage} page={page} />
     </div>
   )
 }
