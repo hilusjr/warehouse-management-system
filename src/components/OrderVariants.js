@@ -15,7 +15,6 @@ function OrderVariants({ setPage, setOrderType, setSemiType }) {
   const openOrderScreen = (page, type) => {
     setPage(page)
     setOrderType(type)
-    console.log(page, type)
   }
 
   return (
