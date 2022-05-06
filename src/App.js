@@ -7,9 +7,8 @@ import Warehouse from './components/Warehouse'
 import data from './json/warehouses.json'
 
 function App() {
-  const [page, setPage] = useState('order-variants')
-  const [prevPage, setPrevPage] = useState('')
-  const [orderType, setOrderType] = useState('Manual')
+  const [page, setPage] = useState('main')
+  const [orderType, setOrderType] = useState('')
   const [semiType, setSemiType] = useState('')
   const [warehouse, setWarehouse] = useState(0)
 
@@ -61,7 +60,6 @@ function App() {
           setPage={setPage}
           setOrderType={setOrderType}
           setSemiType={setSemiType}
-          setPrevPage={setPrevPage}
         />
       )}
       {page === 'order' && (

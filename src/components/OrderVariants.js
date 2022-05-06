@@ -5,7 +5,7 @@ import AutoCard from './AutoCard'
 import SemiCard from './SemiCard'
 import ManualCard from './ManualCard'
 
-function OrderVariants({ setPage, setOrderType, setSemiType, setPrevPage }) {
+function OrderVariants({ setPage, setOrderType, setSemiType }) {
   const [left, setLeft] = useState(0)
   const prevCard = () => {
     if (left === 0) return
@@ -54,7 +54,6 @@ function OrderVariants({ setPage, setOrderType, setSemiType, setPrevPage }) {
           left={left}
           openOrderScreen={openOrderScreen}
           setSemiType={setSemiType}
-          setPrevPage={setPrevPage}
         />
         <ManualCard left={left} openOrderScreen={openOrderScreen} />
         <button

@@ -195,6 +195,23 @@
   transition: max-height 0.25s ease-in-out, gap 0.1s ease-in-out;
 }
 
+.order-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 2vmin;
+}
+
+.order-btn {
+  all: unset;
+  background-color: var(--dark-200);
+  padding: 1.5vmin 4vmin;
+  border-radius: 1.5vmin;
+  text-transform: uppercase;
+  font-size: 3vmin;
+  cursor: pointer;
+}
+
 .order-label {
   display: flex;
   justify-content: space-between;
@@ -235,6 +252,10 @@
 .manual-adjust {
   display: flex;
 }
+.semi-missing-stock {
+  display: flex;
+  font-size: 4vmin;
+}
 
 .manual-adjust button {
   padding: 0.5vmin 1vmin;
@@ -258,4 +279,5 @@
   font-weight: 700;
   font-size: 3vmin;
   text-align: center;
+  resize: none;
 }
