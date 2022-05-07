@@ -43,7 +43,8 @@ function OrderStockInfo({
   }
 
   useEffect(() => {
-    if (orderType === 'semi-automatic') setAmount(missingSemi)
+    if (orderType === 'semi-automatic' && missingSemi >= 0)
+      setAmount(missingSemi)
     stock.order = amount
   }, [amount, missingSemi])
 
@@ -58,7 +59,9 @@ function OrderStockInfo({
       {orderType === 'semi-automatic' && (
         <div className="manual-stock-card-right-col">
           <span>order</span>
-          <div className="semi-missing-stock">{missingSemi}</div>
+          <div className="semi-missing-stock">
+            {missingSemi >= 0 ? missingSemi : 0}
+          </div>
         </div>
       )}
       {orderType === 'Manual' && (
