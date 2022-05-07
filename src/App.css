@@ -15,7 +15,7 @@ header {
   padding: 0 2vmin;
   font-size: 5vmin;
   text-transform: uppercase;
-  z-index: 9999;
+  z-index: 999;
   background-color: inherit;
   transition: width 0.5s ease-in-out, left 0.5s ease-in-out;
 }

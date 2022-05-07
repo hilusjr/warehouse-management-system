@@ -11,6 +11,7 @@ function OrderStockInfo({
 }) {
   const [amount, setAmount] = useState(0)
   if (!current && current !== 0) current = maximum
+
   const missing = maximum - current
   const missingSemi =
     (semiType === 'maximum' && missing) ||
@@ -42,8 +43,9 @@ function OrderStockInfo({
   }
 
   useEffect(() => {
+    if (orderType === 'semi-automatic') setAmount(missingSemi)
     stock.order = amount
-  }, [amount])
+  }, [amount, missingSemi])
 
   return (
     <div className="order-stock-card">

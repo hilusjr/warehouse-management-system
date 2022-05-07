@@ -1,8 +1,9 @@
-import React from 'react'
+import React, { useState } from 'react'
 import BackBtn from './BackBtn'
 import OrderWarehouse from './OrderWarehouse'
 
-function Order({ setPage, orderType, semiType, data, page }) {
+function Order({ setPage, orderType, semiType, warehouses, page }) {
+  const [orderCompleted, setOrderCompleted] = useState(false)
   const description = () => {
     if (orderType === 'Manual') {
       return 'You decide what to order, what not. System provides all the information for you to make it easier to control your warehouse.'
@@ -21,12 +22,13 @@ function Order({ setPage, orderType, semiType, data, page }) {
   }
 
   const completeOrder = () => {
+    setOrderCompleted(true)
     setTimeout(() => {
-      for (const warehouse in data.warehouses) {
-        for (const item in data.warehouses[warehouse].stock) {
-          data.warehouses[warehouse].stock[item].current +=
-            data.warehouses[warehouse].stock[item].order
-          data.warehouses[warehouse].stock[item].order = 0
+      for (const warehouse in warehouses) {
+        for (const item in warehouses[warehouse].stock) {
+          warehouses[warehouse].stock[item].current +=
+            warehouses[warehouse].stock[item].order
+          warehouses[warehouse].stock[item].order = 0
         }
       }
     }, 10000)
@@ -45,17 +47,17 @@ function Order({ setPage, orderType, semiType, data, page }) {
       </aside>
       <section>
         <OrderWarehouse
-          warehouse={data.warehouses[0]}
+          warehouse={warehouses[0]}
           orderType={orderType}
           semiType={semiType}
         />
         <OrderWarehouse
-          warehouse={data.warehouses[1]}
+          warehouse={warehouses[1]}
           orderType={orderType}
           semiType={semiType}
         />
         <OrderWarehouse
-          warehouse={data.warehouses[2]}
+          warehouse={warehouses[2]}
           orderType={orderType}
           semiType={semiType}
         />
@@ -66,6 +68,20 @@ function Order({ setPage, orderType, semiType, data, page }) {
           </button>
         </div>
       </section>
+      <div
+        className="order-completed-dialog"
+        style={orderCompleted ? { display: 'flex' } : { display: 'none' }}
+      >
+        <div className="dialog-window">
+          <span>
+            Your order has been placed succesfully. The request for supplies has
+            been received. Processing the order may take some time.
+          </span>
+          <button className="back-to-main-btn" onClick={() => setPage('main')}>
+            main page
+          </button>
+        </div>
+      </div>
 
       <BackBtn setPage={setPage} page={page} />
     </div>

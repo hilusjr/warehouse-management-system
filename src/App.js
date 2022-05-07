@@ -7,13 +7,15 @@ import Warehouse from './components/Warehouse'
 import data from './json/warehouses.json'
 
 function App() {
-  const [page, setPage] = useState('main')
-  const [orderType, setOrderType] = useState('')
+  const [page, setPage] = useState('order')
+  const [orderType, setOrderType] = useState('Manual')
   const [semiType, setSemiType] = useState('')
   const [warehouse, setWarehouse] = useState(0)
+  let [count, setCount] = useState(0)
 
   useEffect(() => {
-    setInterval(() => {
+    const interval = setInterval(() => {
+      setCount((count += 1))
       const pickedWarehouse =
         data.warehouses[Math.floor(Math.random() * data.warehouses.length)]
       const pickedStock =
@@ -25,6 +27,7 @@ function App() {
       pickedStock.current -= Math.floor(Math.random() * 5) + 1
       if (pickedStock.current < 0) pickedStock.current = 0
     }, 1000)
+    return () => clearInterval(interval)
   }, [])
 
   const headerStyle = {
@@ -67,7 +70,7 @@ function App() {
           setPage={setPage}
           orderType={orderType}
           semiType={semiType}
-          data={data}
+          warehouses={data.warehouses}
           page={page}
         />
       )}

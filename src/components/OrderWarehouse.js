@@ -3,7 +3,6 @@ import OrderStockInfo from '../components/OrderStockInfo'
 
 function OrderWarehouse({ warehouse, orderType, semiType }) {
   const [isCollapsed, setCollapsed] = useState(false)
-  const [count, setCount] = useState(0)
 
   const handleCollapse = () => {
     setCollapsed(!isCollapsed)
@@ -14,12 +13,6 @@ function OrderWarehouse({ warehouse, orderType, semiType }) {
   const orderGap = {
     gap: isCollapsed ? 0 : '5vmin',
   }
-
-  useEffect(() => {
-    setInterval(() => {
-      setCount(count => count + 1)
-    }, [1000])
-  })
 
   return (
     <div className="order-warehouse" style={orderGap}>
@@ -34,7 +27,7 @@ function OrderWarehouse({ warehouse, orderType, semiType }) {
             type={stock.type}
             maximum={stock.max}
             current={stock.current}
-            minimum={stock.minimum}
+            minimum={stock.min}
             orderType={orderType}
             semiType={semiType}
             stock={stock}
