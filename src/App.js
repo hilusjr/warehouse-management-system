@@ -53,7 +53,6 @@ function App() {
 
   useEffect(() => {
     const autoOrder = setInterval(() => {
-      console.log(isAuto)
       if (!isAuto) return
       for (const warehouse in data.warehouses) {
         for (const item in data.warehouses[warehouse].stock) {
