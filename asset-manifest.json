@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/warehouse-management-system/static/css/main.ad1ab435.css",
-    "main.js": "/warehouse-management-system/static/js/main.c0ec92b7.js",
+    "main.css": "/warehouse-management-system/static/css/main.1f0cbb5c.css",
+    "main.js": "/warehouse-management-system/static/js/main.6037d630.js",
     "static/media/plums.jpg": "/warehouse-management-system/static/media/plums.aa8295cc36c6047e7ab9.jpg",
     "static/media/warehouse_2.jpg": "/warehouse-management-system/static/media/warehouse_2.c29ea294c44c71befefd.jpg",
     "static/media/warehouse_1.jpg": "/warehouse-management-system/static/media/warehouse_1.a284b9fa9cd7a32de646.jpg",
@@ -17,11 +17,11 @@
     "static/media/grapes.jpg": "/warehouse-management-system/static/media/grapes.d9fc40111468a30a0e8f.jpg",
     "static/media/cherries.jpg": "/warehouse-management-system/static/media/cherries.2196d35c07c69e32ef4e.jpg",
     "index.html": "/warehouse-management-system/index.html",
-    "main.ad1ab435.css.map": "/warehouse-management-system/static/css/main.ad1ab435.css.map",
-    "main.c0ec92b7.js.map": "/warehouse-management-system/static/js/main.c0ec92b7.js.map"
+    "main.1f0cbb5c.css.map": "/warehouse-management-system/static/css/main.1f0cbb5c.css.map",
+    "main.6037d630.js.map": "/warehouse-management-system/static/js/main.6037d630.js.map"
   },
   "entrypoints": [
-    "static/css/main.ad1ab435.css",
-    "static/js/main.c0ec92b7.js"
+    "static/css/main.1f0cbb5c.css",
+    "static/js/main.6037d630.js"
   ]
 }
