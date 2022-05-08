@@ -5,7 +5,13 @@ import AutoCard from './AutoCard'
 import SemiCard from './SemiCard'
 import ManualCard from './ManualCard'
 
-function OrderVariants({ setPage, setOrderType, setSemiType }) {
+function OrderVariants({
+  setPage,
+  setOrderType,
+  setSemiType,
+  isAuto,
+  setAuto,
+}) {
   const [left, setLeft] = useState(0)
   const prevCard = () => {
     if (left === 0) return
@@ -49,7 +55,7 @@ function OrderVariants({ setPage, setOrderType, setSemiType }) {
         >
           <i className="fa-solid fa-angle-left"></i>
         </button>
-        <AutoCard left={left} />
+        <AutoCard left={left} isAuto={isAuto} setAuto={setAuto} />
         <SemiCard
           left={left}
           openOrderScreen={openOrderScreen}

@@ -9,7 +9,6 @@ function Warehouse({ warehouse, setPage, notifications }) {
   const warehouseNotifications = notifications.filter(
     item => item.warehouse === warehouse.codename
   )
-  console.log(warehouseNotifications)
 
   const stockColor =
     (level > 30 && 'var(--accent-green)') ||

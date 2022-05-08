@@ -8,6 +8,7 @@ import data from './json/warehouses.json'
 
 function App() {
   const [page, setPage] = useState('main')
+  const [isAuto, setAuto] = useState(true)
   const [orderType, setOrderType] = useState('')
   const [semiType, setSemiType] = useState('')
   let [notifications, setNotifications] = useState([])
@@ -50,6 +51,20 @@ function App() {
     return () => clearInterval(interval)
   }, [])
 
+  useEffect(() => {
+    const autoOrder = setInterval(() => {
+      console.log(isAuto)
+      if (!isAuto) return
+      for (const warehouse in data.warehouses) {
+        for (const item in data.warehouses[warehouse].stock) {
+          data.warehouses[warehouse].stock[item].current =
+            data.warehouses[warehouse].stock[item].max
+        }
+      }
+    }, 30000)
+    return () => clearInterval(autoOrder)
+  }, [isAuto])
+
   const headerStyle = {
     width: page !== 'main' ? '90%' : '100%',
     left: page !== 'main' ? '10%' : 0,
@@ -88,6 +103,8 @@ function App() {
           setPage={setPage}
           setOrderType={setOrderType}
           setSemiType={setSemiType}
+          isAuto={isAuto}
+          setAuto={setAuto}
         />
       )}
       {page === 'order' && (
@@ -98,6 +115,7 @@ function App() {
           warehouses={data.warehouses}
           page={page}
           notifications={notifications}
+          setAuto={setAuto}
         />
       )}
     </div>

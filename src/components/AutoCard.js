@@ -1,6 +1,4 @@
-import React from 'react'
-
-function AutoCard({ left }) {
+function AutoCard({ left, isAuto, setAuto }) {
   const cardPosition = {
     left: `${30 + left}%`,
   }
@@ -14,9 +12,12 @@ function AutoCard({ left }) {
           missing supplies.
         </span>
       </div>
-      <button className="variant-action">
-        <span>active</span>
-        <i className="fa-solid fa-check"></i>
+      <button className="variant-action" onClick={() => setAuto(!isAuto)}>
+        <span>{isAuto ? 'active' : 'turn on'}</span>
+        <i
+          className="fa-solid fa-check"
+          style={isAuto ? { display: 'block' } : { display: 'none' }}
+        ></i>
       </button>
     </div>
   )

@@ -10,6 +10,7 @@ function Order({
   warehouses,
   page,
   notifications,
+  setAuto,
 }) {
   const [orderCompleted, setOrderCompleted] = useState(false)
   const description = () => {
@@ -96,7 +97,13 @@ function Order({
             Your order has been placed succesfully. The request for supplies has
             been received. Processing the order may take some time.
           </span>
-          <button className="back-to-main-btn" onClick={() => setPage('main')}>
+          <button
+            className="back-to-main-btn"
+            onClick={() => {
+              setPage('main')
+              setAuto(false)
+            }}
+          >
             main page
           </button>
         </div>
