@@ -98,3 +98,29 @@ input[type='number']::-webkit-inner-spin-button,
 input[type='number']::-webkit-outer-spin-button {
   -webkit-appearance: none;
 }
+
+.notification-panel {
+  padding: 3vmin 2vmin 3vmin 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1vmin;
+  font-size: 2vmin;
+  text-transform: none;
+  color: var(--text);
+}
+
+.notification {
+  display: flex;
+  align-items: center;
+  gap: 1vmin;
+  padding: 1vmin;
+  background-color: var(--dark-200);
+  border-radius: 1vmin;
+}
+
+.notification-warehouse {
+  text-transform: capitalize;
+}
+.notification-stock::first-letter {
+  text-transform: capitalize;
+}

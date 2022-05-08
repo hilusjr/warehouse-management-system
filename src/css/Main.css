@@ -96,3 +96,15 @@
   font-size: 2vmin;
   margin: 1vmin 0 2vmin;
 }
+
+.main-notification-panel {
+  height: 92vmin;
+  position: fixed;
+  bottom: 1vmin;
+  right: 1vmin;
+  width: 15%;
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+  gap: 0.5vmin;
+}

@@ -10,8 +10,26 @@ function App() {
   const [page, setPage] = useState('main')
   const [orderType, setOrderType] = useState('')
   const [semiType, setSemiType] = useState('')
+  let [notifications, setNotifications] = useState([])
   const [warehouse, setWarehouse] = useState(0)
   let [count, setCount] = useState(0)
+
+  const loadNotifications = () => {
+    notifications = []
+    for (let i = 0; i < 3; i++) {
+      for (let j = 0; j < 8; j++) {
+        const pickedWarehouse = data.warehouses[i]
+        const pickedStock = pickedWarehouse.stock[j]
+        if (pickedStock.current <= pickedStock.max / 2) {
+          notifications.push({
+            warehouse: pickedWarehouse.codename,
+            type: pickedStock.type,
+          })
+        }
+      }
+    }
+    setNotifications(notifications)
+  }
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -26,7 +44,9 @@ function App() {
         pickedStock.current = pickedStock.max
       pickedStock.current -= Math.floor(Math.random() * 5) + 1
       if (pickedStock.current < 0) pickedStock.current = 0
-    }, 1000)
+
+      loadNotifications()
+    }, 500)
     return () => clearInterval(interval)
   }, [])
 
@@ -53,10 +73,15 @@ function App() {
           warehouses={data.warehouses}
           setPage={setPage}
           setWarehouse={setWarehouse}
+          notifications={notifications}
         />
       )}
       {page === 'warehouse' && (
-        <Warehouse warehouse={data.warehouses[warehouse]} setPage={setPage} />
+        <Warehouse
+          warehouse={data.warehouses[warehouse]}
+          setPage={setPage}
+          notifications={notifications}
+        />
       )}
       {page === 'order-variants' && (
         <OrderVariants
@@ -72,6 +97,7 @@ function App() {
           semiType={semiType}
           warehouses={data.warehouses}
           page={page}
+          notifications={notifications}
         />
       )}
     </div>

@@ -1,7 +1,7 @@
 import '../css/Main.css'
+import Notification from './Notification'
 
-function Main({ warehouses, setPage, setWarehouse }) {
-  // console.log(warehouses[0])
+function Main({ warehouses, setPage, setWarehouse, notifications }) {
   return (
     <section className="main page">
       <button onClick={() => setPage('order-variants')}>
@@ -17,6 +17,16 @@ function Main({ warehouses, setPage, setWarehouse }) {
             city={warehouse.address.city}
             setPage={setPage}
             setWarehouse={setWarehouse}
+          />
+        ))}
+      </div>
+      <div className="main-notification-panel">
+        {notifications.map((notification, i) => (
+          <Notification
+            key={i}
+            warehouse={notification.warehouse}
+            type={notification.type}
+            level={notification.level}
           />
         ))}
       </div>

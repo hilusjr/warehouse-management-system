@@ -1,8 +1,16 @@
 import React, { useState } from 'react'
 import BackBtn from './BackBtn'
+import Notification from './Notification'
 import OrderWarehouse from './OrderWarehouse'
 
-function Order({ setPage, orderType, semiType, warehouses, page }) {
+function Order({
+  setPage,
+  orderType,
+  semiType,
+  warehouses,
+  page,
+  notifications,
+}) {
   const [orderCompleted, setOrderCompleted] = useState(false)
   const description = () => {
     if (orderType === 'Manual') {
@@ -43,7 +51,18 @@ function Order({ setPage, orderType, semiType, warehouses, page }) {
           <span className="semi-type">{semiType} resupply</span>
         )}
         <span className="order-description">{description()}</span>
-        <div className="order-warnings"></div>
+        {orderType === 'Manual' && (
+          <div className="notification-panel">
+            {notifications.map((notification, i) => (
+              <Notification
+                key={i}
+                warehouse={notification.warehouse}
+                type={notification.type}
+                level={notification.level}
+              />
+            ))}
+          </div>
+        )}
       </aside>
       <section>
         <OrderWarehouse

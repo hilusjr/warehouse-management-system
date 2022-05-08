@@ -1,10 +1,16 @@
 import '../css/Warehouse.css'
 import WarehouseStock from './WarehouseStock'
+import Notification from './Notification'
 import { useEffect, useState } from 'react'
 import BackBtn from './BackBtn'
 
-function Warehouse({ warehouse, setPage }) {
+function Warehouse({ warehouse, setPage, notifications }) {
   const [level, setLevel] = useState(100)
+  const warehouseNotifications = notifications.filter(
+    item => item.warehouse === warehouse.codename
+  )
+  console.log(warehouseNotifications)
+
   const stockColor =
     (level > 30 && 'var(--accent-green)') ||
     (level > 15 && 'var(--accent-orange)') ||
@@ -54,6 +60,16 @@ function Warehouse({ warehouse, setPage }) {
               {level}%
             </span>
           </div>
+        </div>
+        <div className="notification-panel">
+          {warehouseNotifications.map((notification, i) => (
+            <Notification
+              key={i}
+              type={notification.type}
+              level={notification.level}
+              inWarehouse={true}
+            />
+          ))}
         </div>
       </aside>
       <section>
