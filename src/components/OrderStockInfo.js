@@ -25,6 +25,7 @@ function OrderStockInfo({
     if (inputValue > missing) {
       setAmount(missing)
     }
+    if (inputValue < 0) setAmount(0)
   }
   const increaseAmount = () => {
     if (amount >= missing) return

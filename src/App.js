@@ -117,6 +117,7 @@ function App() {
           setAuto={setAuto}
         />
       )}
+      <span className="copyright">&copy; hilusjr 2022</span>
     </div>
   )
 }
